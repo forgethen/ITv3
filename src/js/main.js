@@ -33,7 +33,9 @@ $(document).ready(function() {
 
 
   function fromresize() {
-    clientRandom();
+    setTimeout(function () {
+      clientRandom();
+    }, 100);
     resizer();
   }
 
@@ -51,6 +53,7 @@ $(document).ready(function() {
         $('header').css('height','100%');
         $('header').css('max-height','56.25vw');
         setTimeout(function () {
+          var hHeight = $('header').height();
           $('.cases--v1').css('height',hHeight);
           $('.cases--v1 .cases__items').css('height',hHeight);
           $('.cases--v1').css('min-height',hHeight);
@@ -63,6 +66,7 @@ $(document).ready(function() {
         $('header').css('height','100vh');
         $('header').css('max-height','56.25vw');
         setTimeout(function () {
+          var hHeight = $('header').height();
           $('.cases--v1').css('height',hHeight);
           $('.cases--v1 .cases__items').css('height',hHeight);
           $('.cases--v1').css('min-height',hHeight);
@@ -111,6 +115,14 @@ $(document).ready(function() {
     slidesToShow: 3,
     arrows: true,
     autoplay: true,
+    responsive: [{
+      breakpoint: 501,
+      settings: {
+        dots: true,
+        slidePerRow: 1,
+        slidesToShow: 1,
+      }
+    }, ]
   });
 
   $('.burger').click(function() {
